@@ -4,6 +4,7 @@ import morgan from "morgan";
 import dotenv from "dotenv";
 import connectDB from "./config/db";
 
+import productRoutes from "./routes/productRoutes";
 import userRoutes from "./routes/userRoutes";
 
 const PORT = process.env.PORT || 4000;
@@ -21,6 +22,7 @@ app.get("/", (req: Request, res: Response) => {
 	res.send("A API ESTÁ EM EXECUÇÃO...");
 });
 
+app.use("/api/products/", productRoutes);
 app.use("/api/users/", userRoutes);
 
 app.listen(PORT, () => {
