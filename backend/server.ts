@@ -4,6 +4,7 @@ import morgan from "morgan";
 import dotenv from "dotenv";
 import connectDB from "./config/db";
 
+import orderRoutes from "./routes/orderRoutes";
 import productRoutes from "./routes/productRoutes";
 import userRoutes from "./routes/userRoutes";
 
@@ -22,6 +23,7 @@ app.get("/", (req: Request, res: Response) => {
 	res.send("A API ESTÁ EM EXECUÇÃO...");
 });
 
+app.use("/api/orders/", orderRoutes);
 app.use("/api/products/", productRoutes);
 app.use("/api/users/", userRoutes);
 
